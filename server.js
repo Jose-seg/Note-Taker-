@@ -43,6 +43,23 @@ app.post("/api/notes", (req, res) => {
   });
 });
 
+// Code for the delete route
+app.delete("/api/notes/:id", (req, res) => {
+    const noteId = req.params.id;
+
+    fs.readFile("db.json", "utf8", (err, data) => {
+        if (err) throw err;
+
+        let notes = JSON.parse(data);
+        notes = notes.filter((note) => note.id !== noteId);
+
+        fs.writeFile("db.json", JSON.stringify(notes), (err) => {
+            if (err) throw err;
+            res.sendStatus(200);
+        });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`);
 })
