@@ -11,3 +11,4 @@ The purpose of the app is to provide the user with a simple note taker, it utili
 ## Deployment
 
 ## Github Repo
+https://github.com/Jose-seg/Note-Taker-
