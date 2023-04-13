@@ -9,6 +9,6 @@ The purpose of the app is to provide the user with a simple note taker, it utili
 ## ScreenShots
 
 ## Deployment
-
+https://quiet-reaches-08384.herokuapp.com/
 ## Github Repo
 https://github.com/Jose-seg/Note-Taker-
