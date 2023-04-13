@@ -26,3 +26,23 @@ app.get("/api/notes", (req, res) => {
         res.json(JSON.parse(data));
     });
 });
+
+app.post("/api/notes", (req, res) => {
+    const newNote = req.body;
+    newNote.id = uuidv4();
+
+    fs.readFile("db.json", "utf8", (err, data) => {
+        if (err) throw err;
+        const notes = JSON.parse(data);
+        notes.push(newNote);
+
+    fs.writeFile("db.json", JSON.stringify(notes), (err) => {
+        if (err) throw err;
+        res.json(newNote);
+    });
+  });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is listening on PORT ${PORT}`);
+})
